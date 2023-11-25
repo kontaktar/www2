@@ -1,3 +1,9 @@
+docker-compose up
+docker-compose down
+docker-compose ps
+docker-compose logs web
+docker-compose up --force-recreate
+
 <p align="center">
   <a href="https://nextjs-postgres-auth.vercel.app/">
     <img src="/public/logo.png" height="96">

@@ -1,0 +1,40 @@
+services:
+  # web:
+  #   build:
+  #     context: .
+  #     args:
+  #       - DATABASE_URL=postgres://postgres:speztorg@postgres:5432/postgres
+  #   ports:
+  #     - "3000:8000"
+
+  #   environment:
+  #     - DATABASE_URL=postgres://postgres:speztorg@postgres:5432/postgres
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  db:
+    image: postgres
+    restart: always
+    user: postgres
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/pg-pass
+    secrets:
+      - pg-pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+secrets:
+  pg-pass:
+    file: ./secrets/pg-pass.txt
+
+volumes:
+  pgdata:
+
+networks:
+  default:

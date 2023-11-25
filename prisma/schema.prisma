@@ -2,19 +2,75 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["jsonProtocol"]
 }
 
 datasource db {
   provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+  url      = env("POSTGRES_URL") // uses connection pooling
+  // directUrl = env("POSTGRES_URL") // uses connection pooling
+  // directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  // shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  password  String
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+
+  UserDetail UserDetail?
+    UserStatistics UserStatistics?
+  UserAddress    UserAddress?
+  Experience     Experience[]
+}
+
+model UserDetail {
+  User           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         Int             @unique
+  ssn            String          @unique
+  userName       String          @unique
+  firstName      String
+  lastName       String
+  phoneNumber    String?
+  email          String?         @unique
+  website        String?
+  role           Role            @default(USER)
+}
+
+model UserStatistics {
+  id         Int         @id @default(autoincrement())
+  createdAt  DateTime    @default(now())
+  lastLogin  DateTime?
+  updatedAt  DateTime?
+  User           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     Int         @unique
+}
+
+model UserAddress {
+  id         Int         @id @default(autoincrement())
+  postalCode String?
+  streetName String?
+  city       String?
+  country    String?
+  User           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     Int         @unique
+}
+
+model Experience {
+  id          Int         @id @default(autoincrement())
+  years       Int?
+  months      Int?
+  order       Int?
+  title       String?
+  description String?
+  editedAt    DateTime?
+  published   Boolean?    @default(false)
+  User           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+}
+
+enum Role {
+  USER
+  ADMIN
 }

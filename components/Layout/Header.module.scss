@@ -1,0 +1,140 @@
+@import "../../styles/config";
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  position: relative;
+
+  * {
+    font-family: "Berlingske Sans Bold";
+  }
+}
+.navigation {
+  display: block;
+  .tab {
+    display: inline-blocK;
+  }
+  @media (max-width: 1024px) {
+    .tab {
+      margin: 0 0px;
+    }
+  }
+}
+.logo_area {
+  flex-grow: 1;
+}
+
+.login {
+  opacity: 0;
+  transition: background-color 0.1s;
+  animation: opacity 0.1s ease-out 0.3s;
+  animation-fill-mode: forwards;
+  width: 166px;
+  margin-left: 40px;
+  @media (max-width: 782px) {
+    margin-left: 0;
+  }
+  @media (max-width: 735px) {
+    width: 110px;
+  }
+}
+
+.modal_content {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  background: $color-red;
+  height: 100vh;
+
+  .close_button,
+  .logo_area {
+    background: $color-red;
+    div::after {
+      color: $color-white;
+    }
+  }
+  nav span a {
+    color: $color-white;
+  }
+
+  @media (max-width: $screen-smartphone-small) {
+    padding: 10px;
+  }
+  @media (max-width: $screen-smartphone-wide) {
+    padding: 20px;
+  }
+}
+
+.close_button {
+  background-color: unset;
+  border: none;
+  padding: 0;
+  margin: 0;
+  div {
+    height: 50px;
+    width: 50px;
+
+    color: white;
+    position: relative;
+  }
+
+  div:after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    color: $color-red;
+    right: 0;
+    content: "\D7";
+    font-size: 48px;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+.mobile_navigation {
+  display: flex;
+  flex-direction: column;
+  line-height: 58px;
+  flex-grow: 1;
+  align-self: center;
+  margin-top: 50px;
+  a {
+    font-family: "Berlingske Serif";
+    font-size: 42px;
+    color: $color-red;
+    text-decoration: none;
+  }
+}
+
+.modal_container {
+  padding: 0;
+  div[data-reach-dialog-content] {
+    margin: 0;
+    border: none !important;
+    padding: 0;
+    > button {
+      display: none;
+    }
+  }
+}
+
+.ripple {
+  background-position: center;
+  transition: background 2s;
+
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.ripple:hover {
+  background: $color-white
+    radial-gradient(circle, transparent 1%, $color-red 1%) center/70000%;
+}
+.ripple:active {
+  background-color: $color-red;
+  background-size: 100%;
+  transition: background 0.1s;
+  color: $color-white;
+}
