@@ -1,0 +1,107 @@
+@import "../../styles/config";
+
+$carousel-mobile-breakpoint: 664px;
+
+.carousel_root {
+  position: relative;
+  margin-top: 60px;
+  // box-sizing: border-box;
+  :global {
+    .react-multi-carousel-track {
+      padding-top: 80px;
+    }
+    .react-multi-carousel-list {
+      margin-bottom: 60px;
+    }
+    @media (max-width: 684px) {
+      .react-multi-carousel-item {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+.card_container {
+  display: flex;
+  flex-direction: row;
+  * {
+    min-width: 250px;
+  }
+}
+
+.button_next {
+  position: absolute;
+  right: 0;
+  top: 0;
+  &_small {
+    top: unset;
+
+    bottom: 0;
+    height: 250px;
+    width: 30px;
+    box-sizing: border-box;
+    border: none;
+    background: none;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      border: none;
+      svg,
+      path {
+        fill: $primary-color !important;
+      }
+    }
+    svg,
+    path {
+      fill: $primary-color !important;
+    }
+  }
+}
+.button_back {
+  position: absolute;
+  right: 80px;
+  top: 0;
+  &_small {
+    left: 0;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      border: none;
+      svg,
+      path {
+        fill: $primary-color !important;
+      }
+    }
+    svg,
+    path {
+      fill: $primary-color !important;
+    }
+    top: unset;
+    bottom: 0;
+    right: unset;
+    height: 250px;
+    width: 30px;
+    box-sizing: border-box;
+    border: none;
+    background: none;
+  }
+}
+
+.carousel_header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+
+  h2 {
+    flex-grow: 1;
+    font-size: 40px;
+    top: 30px;
+    font-family: "Berlingske Serif";
+    position: absolute;
+    @media (max-width: 684px) {
+      font-size: 28px;
+    }
+  }
+}

@@ -6,6 +6,9 @@ import { Toaster } from "react-hot-toast";
 import AuthStatus from "@/components/auth-status";
 import { Suspense } from "react";
 import Providers from "../components/providers";
+import cx from "classnames";
+import StyledComponentsRegistry from "./lib/style-registry";
+import MainLayout from "layouts/MainLayout/MainLayout";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,7 +38,69 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.variable}>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/BerlingskeSans.ttf"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/BerlingskeSansBold.ttf"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/BerlingskeSerif.ttf"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/BerlingskeSans.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/BerlingskeSansBold.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/BerlingskeSerif.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/BerlingskeSans.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/BerlingskeSansBold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/BerlingskeSerif.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        />
+      </head>
+      <body className={cx(inter.variable)}>
         <Toaster />
         <AuthStatus />
         <Suspense fallback="Loading...">

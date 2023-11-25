@@ -15,50 +15,44 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
+  id       String @id @default(uuid()) @db.Uuid
   email    String @unique
   password String
 
-  UserDetail UserDetail?
-    UserStatistics UserStatistics?
-  UserAddress    UserAddress?
-  Experience     Experience[]
+  userDetail UserDetail?
+  userStatistics UserStatistics?
+  experience     Experience[]
 }
 
 model UserDetail {
-  User           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId         Int             @unique
-  ssn            String          @unique
-  userName       String          @unique
+  id             String         @id @default(uuid())
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String         @db.Uuid  @unique
+  ssn            String         @unique
+  userName       String         @unique
   firstName      String
   lastName       String
   phoneNumber    String?
-  email          String?         @unique
   website        String?
-  role           Role            @default(USER)
-}
-
-model UserStatistics {
-  id         Int         @id @default(autoincrement())
-  createdAt  DateTime    @default(now())
-  lastLogin  DateTime?
-  updatedAt  DateTime?
-  User           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId     Int         @unique
-}
-
-model UserAddress {
-  id         Int         @id @default(autoincrement())
   postalCode String?
   streetName String?
   city       String?
   country    String?
-  User           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId     Int         @unique
+  role           Role           @default(USER)
 }
 
+model UserStatistics {
+  id       String @id   @default(uuid()) @db.Uuid
+  createdAt  DateTime    @default(now())
+  lastLogin  DateTime?
+  updatedAt  DateTime?
+  user           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String         @unique  @db.Uuid
+}
+
+
 model Experience {
-  id          Int         @id @default(autoincrement())
+  id       String @id   @default(uuid()) @db.Uuid
   years       Int?
   months      Int?
   order       Int?
@@ -66,8 +60,8 @@ model Experience {
   description String?
   editedAt    DateTime?
   published   Boolean?    @default(false)
-  User           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId      Int
+  user           User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String         @db.Uuid
 }
 
 enum Role {

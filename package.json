@@ -7,6 +7,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.3.3",
+    "@material-ui/system": "^4.5.0",
     "@prisma/client": "^4.14.0",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
@@ -15,16 +19,24 @@
     "next-auth": "^4.22.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "sass": "^1.32.12"
   },
   "devDependencies": {
+    "@reach/dialog": "^0.12.1",
     "@types/bcrypt": "^5.0.0",
     "autoprefixer": "^10.4.4",
     "classnames": "^2.3.2",
     "eslint": "8.11.0",
     "eslint-config-next": "^13.0.5",
+    "grommet": "^2.34.1",
+    "grommet-icons": "^4.11.0",
     "postcss": "^8.4.12",
     "prisma": "^4.14.0",
+    "react-multi-carousel": "^2.6.5",
+    "react-spring": "^9.0.0-rc.3",
+    "styled-components": "^5.3.11",
+    "swr": "^2.2.4",
     "tailwindcss": "^3.0.23",
     "typescript": "^4.6.2"
   }

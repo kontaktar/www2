@@ -1,0 +1,66 @@
+@import "../../styles/config";
+
+.root {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow: hidden;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+
+  overflow: hidden;
+}
+
+.root {
+  .content {
+    padding: 0px 40px 40px 40px;
+  }
+  header,
+  footer {
+    padding: 40px;
+  }
+}
+@media (max-width: $screen-smartphone-small) {
+  .root {
+    .content,
+    header,
+    footer {
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-width: $screen-smartphone-wide) {
+  .root {
+    .content {
+      padding: 0px 20px 20px 20px;
+    }
+    header {
+      padding: 20px;
+    }
+    footer {
+      padding: 0 20px;
+    }
+  }
+}
+
+// @media (max-width: $screen-smartphone) {
+//   .root {
+//     .content {
+
+//     }
+//     header,
+//     footer {
+//       padding: 20px 20px 20px 20px;
+//     }
+//   }
+// }

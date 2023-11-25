@@ -1,0 +1,146 @@
+@import "../../styles/config";
+
+.frontpage {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.hero {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+  flex-direction: column;
+  align-self: center;
+  width: 100%;
+  h1 {
+    opacity: 0;
+    animation: slideInFromTop 0.21s ease-out;
+    animation-fill-mode: forwards;
+    padding: 40px 0;
+    max-width: 460px;
+  }
+  h1,
+  .highlight {
+    font-family: "Berlingske Serif";
+    font-size: 48px;
+    line-height: 58px;
+  }
+}
+.search {
+  margin: 40px 0;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  .search_bar {
+    height: 50px;
+    flex-basis: 500px;
+  }
+  .search_button {
+    width: 140px;
+    margin-left: 20px;
+  }
+}
+
+.solid_ring {
+  animation-name: opacity;
+  animation-duration: 3.5s;
+  position: absolute;
+  z-index: -1;
+  right: -160px;
+  @media (max-width: $screen-tablet-landscape) {
+    display: none;
+  }
+}
+
+.transparent_ring {
+  animation-name: opacity;
+  animation-duration: 3s;
+  position: absolute;
+  z-index: -2;
+  right: 69px;
+  top: 150px;
+  @media (max-width: $screen-smartphone-wide) {
+    right: -20px;
+  }
+}
+
+.plusses {
+  position: absolute;
+  z-index: -2;
+  right: 145px;
+  top: 475px;
+}
+
+.highlight {
+  color: $primary-color;
+  background: white;
+  border-radius: 48px;
+  padding-right: 200px;
+}
+
+@media (min-width: $screen-tablet-landscape) {
+  .hero {
+    h1 {
+      padding-left: 60px;
+    }
+  }
+}
+@media (max-width: $screen-tablet-landscape) {
+  .highlight {
+    display: block;
+    background: unset;
+    padding: 0;
+  }
+}
+
+@media (max-width: $screen-tablet-portrait) {
+  .search {
+    flex-direction: column;
+    .search_button {
+      margin-left: 0px;
+      margin-top: 20px;
+      align-self: center;
+    }
+    .search_bar {
+      flex-basis: 0px;
+    }
+  }
+}
+@media (max-width: $screen-smartphone-wide) {
+  .hero {
+    h1,
+    .highlight {
+      font-size: 36px;
+    }
+  }
+  .search {
+    .search_bar {
+      width: 100%;
+    }
+  }
+}
+@media (max-width: $screen-smartphone) {
+  .hero {
+    h1,
+    .highlight {
+      font-size: 32px;
+    }
+  }
+}
+
+@media (max-width: $screen-smartphone-small) {
+  .hero {
+    h1,
+    .highlight {
+      font-size: 26px;
+    }
+  }
+}

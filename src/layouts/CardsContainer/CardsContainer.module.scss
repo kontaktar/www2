@@ -1,0 +1,17 @@
+@import "../../styles/config";
+
+.cards_container {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-auto-rows: auto;
+  place-content: flex-start;
+  column-gap: 16px;
+  row-gap: 30px;
+}
+
+@media (max-width: $screen-smartphone) {
+  .cards_container {
+    grid-template-columns: repeat(auto-fill, 250px);
+  }
+}

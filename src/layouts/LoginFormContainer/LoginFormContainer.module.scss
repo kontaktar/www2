@@ -1,0 +1,67 @@
+@import "../../styles/config";
+
+.form {
+  // padding-top: 100px;
+  padding-bottom: 60px;
+  max-width: 360px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
+  margin: auto;
+  > *:first-child {
+    padding-bottom: 40px;
+  }
+  > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+.button {
+  display: block;
+
+  padding: 0px;
+}
+
+.or {
+  text-align: center;
+  display: inline-block;
+  padding: 25px 0;
+  position: relative;
+
+  span {
+    z-index: -1;
+    padding: 0 8px;
+    color: $color-black-60;
+    background: $color-white;
+  }
+}
+
+.or::after {
+  content: " ";
+  background: $color-black-60;
+  width: 100%;
+  display: block;
+  position: absolute;
+  height: 1px;
+  bottom: 50%;
+  z-index: -1;
+}
+
+.error {
+  padding: 0;
+  margin-bottom: 25px;
+  height: 20px;
+  color: $color-error-red;
+}
+
+.heading {
+  font-size: 24px;
+  font-family: "Berlingske Sans Bold";
+  display: block;
+  margin-bottom: 30px;
+}

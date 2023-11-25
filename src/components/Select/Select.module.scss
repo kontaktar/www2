@@ -1,0 +1,40 @@
+@import "../../styles/config";
+
+.select {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 24px;
+  :global {
+    .MuiFormControl-root {
+      width: 100%;
+      border: 1px solid $color-grey-30;
+    }
+    .MuiInputBase-root {
+      height: 50px;
+    }
+    .MuiSelect-select:focus {
+      height: 100%;
+    }
+    .MuiInputBase-input {
+      padding: 0;
+      text-indent: 20px;
+    }
+    .MuiInput-underline:before {
+      border-bottom: none;
+    }
+    .MuiSelect-icon {
+      right: 5px;
+      fill: $primary-color;
+    }
+  }
+}
+
+.label {
+  display: block;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.hidden_label {
+  height: 43px;
+}

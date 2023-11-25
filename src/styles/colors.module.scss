@@ -1,0 +1,39 @@
+$color-orange: #f2994a;
+$color-green: #6fcf97;
+$color-red: #b40409;
+$color-error-red: #f44336;
+$color-brown: #ddc3ac;
+
+$color-white: #ffffff;
+
+$color-grey-30: #b3b3b3; // Do not use for text.
+$color-grey-light: #767676;
+$color-grey-dark: #333333;
+
+$color-paper-white: #f3f3f3;
+
+$color-black: #000000;
+$color-black-20: rgba(0, 0, 0, 0.2);
+$color-black-60: rgba(0, 0, 0, 0.3);
+
+$secondary-black-color: rgba(0, 0, 0, 0.8);
+$paragraph-color: rgba(0, 0, 0, 0.9);
+$paragraph-inverted-color: $color-white;
+$paragraph-color-placeholder: $color-black-60;
+
+$primary-color: $color-red;
+$secondary-color: $color-brown;
+
+$background-color: $color-white;
+$color-background: $color-white; // use this
+
+// use as:
+// import colors from "styles/colors.scss";
+// colors.black20
+
+:export {
+  red: $color-red;
+  black20: $color-black-20;
+  greyDark: $color-grey-dark;
+  greyLight: $color-grey-light;
+}

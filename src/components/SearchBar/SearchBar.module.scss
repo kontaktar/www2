@@ -1,0 +1,67 @@
+@import "../../styles/config";
+
+.searchbar {
+  position: relative;
+  height: 46px;
+  line-height: 0px;
+
+  :global {
+    .MuiInput-underline:after {
+      border-bottom: 2px solid $color-red;
+    }
+    .MuiInputAdornment-root {
+      min-width: 48px;
+    }
+  }
+
+  input {
+    border: none;
+    font-size: 32px;
+    font-family: "Berlingske Sans";
+  }
+  input::placeholder {
+    color: $color-grey-light;
+    font-size: 32px;
+    font-family: "Berlingske Sans";
+  }
+}
+
+.search_icon {
+  :global {
+    .MuiSvgIcon-root {
+      fill: $color-red;
+      svg {
+        fill: $color-red;
+      }
+    }
+  }
+}
+
+.results {
+  padding: 20px 0;
+}
+@media (max-width: $screen-tablet-portrait) {
+  .searchbar input {
+    &::placeholder {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: $screen-smartphone-wide) {
+  .searchbar input {
+    &::placeholder {
+      text-align: left;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: $screen-smartphone) {
+  .searchbar input {
+    padding-left: 30px;
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
+}

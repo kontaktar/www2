@@ -1,0 +1,155 @@
+@import "../../styles/config";
+
+.modalcontent {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: $color-white;
+  overflow-y: scroll;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (max-width: $screen-smartphone-wide) {
+    padding: 10px 0;
+  }
+}
+.header {
+  flex-grow: 1;
+  padding-bottom: 10px;
+  font-size: 24px;
+  font-family: "Berlingske Sans Bold";
+}
+
+.input_line,
+.input_rows {
+  display: flex;
+  justify-content: space-between;
+  @media only screen and (max-width: $screen-tablet-portrait) {
+    flex-direction: column;
+
+    .dropdown_line {
+      flex-basis: 100%;
+
+      padding-left: 0;
+    }
+  }
+}
+.input_line {
+  flex-wrap: wrap;
+  align-items: stretch;
+  flex-direction: row;
+}
+
+.textarea {
+  flex-grow: 1;
+  padding: 16px;
+}
+@media only screen and (max-width: $screen-tablet-portrait) {
+  .input_line {
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .dropdown_line {
+      div:first-child {
+        padding-left: 0;
+      }
+      div:last-child {
+        padding-right: 0;
+      }
+    }
+
+    > div {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .textarea {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.input_rows {
+  flex-direction: column;
+}
+
+.dropdown_line {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  min-width: 300px;
+  @media (max-width: $screen-tablet-portrait) {
+    min-width: unset;
+  }
+}
+
+.length_dropdown {
+  flex: 1 0 105px;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.error_message {
+  position: absolute;
+  color: red; // TODO:
+  top: 30px;
+}
+
+.footer_upper_line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer_text_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.user_info_timestamp {
+  float: left;
+}
+
+.experience_timestamp {
+  margin: auto;
+}
+
+.button_line {
+  margin: 32px 0;
+  > button {
+    float: right;
+  }
+}
+
+.button_save {
+  width: 120px;
+}
+
+.title_input {
+  display: flex;
+  flex: 0 0 400px;
+}
+
+@media (max-width: $screen-tablet-portrait) {
+  .experience_timestamp {
+    width: 100%;
+    margin-top: $unit;
+    order: 3;
+  }
+}
+@media (max-width: $screen-smartphone-wide) {
+  .title_input {
+    min-width: 100%;
+  }
+}

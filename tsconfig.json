@@ -10,7 +10,55 @@
       "@/pages/*": ["pages/*"],
       "@/app/*": ["app/*"],
       "@/lib/*": ["lib/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "assets/*": [
+        "src/assets/*"
+      ],
+      "components": [
+        "src/components"
+      ],
+      "components/*": [
+        "src/components/*"
+      ],
+      "data/*": [
+        "src/data/*"
+      ],
+      "database/*": [
+        "src/database/*"
+      ],
+      "helpers/*": [
+        "src/helpers/*"
+      ],
+      "hooks/*": [
+        "src/hooks/*"
+      ],
+      "layouts/*": [
+        "src/layouts/*"
+      ],
+      "lib/*": [
+        "src/lib/*"
+      ],
+      "pages/*": [
+        "src/pagesOLD/*"
+      ],
+      "providers/*": [
+        "src/providers/*"
+      ],
+      "store/*": [
+        "src/store/*"
+      ],
+      "styles/*": [
+        "src/styles/*"
+      ],
+      "types": [
+        "src/types"
+      ],
+      "types/*": [
+        "src/types/*"
+      ],
+      "utils/*": [
+        "src/utils/*"
+      ]
     },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -28,6 +76,6 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-auth.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

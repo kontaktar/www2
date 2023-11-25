@@ -1,0 +1,12 @@
+@import "../../styles/config";
+
+.search_container_root {
+  width: 100%;
+  display: inline-block;
+  place-self: stretch;
+  margin-top: 0;
+}
+.search_bar {
+  height: 120px;
+  min-width: 150px;
+}

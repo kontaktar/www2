@@ -1,0 +1,173 @@
+@import "../../styles/config";
+
+.subscription_container {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 60px;
+  flex-grow: 1;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1000px;
+
+  padding-top: 40px;
+}
+
+.description_container {
+  flex-direction: column;
+  flex-basis: 60%;
+  padding-top: 10px;
+
+  h1,
+  p {
+    max-width: 432px;
+  }
+  h1 {
+    font-family: "Berlingske Serif";
+    font-size: 48px;
+    line-height: 58px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 170%;
+  }
+}
+
+.subscription_card {
+  width: 394px;
+  background: #ffffff;
+  border: 1px solid $color-red;
+  box-sizing: border-box;
+  box-shadow: 0px 16px 30px rgba(0, 0, 0, 0.1);
+}
+
+.subscription_card_container {
+  // margin: auto;
+}
+
+.card_content {
+  padding: 40px;
+  flex-basis: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card_title {
+  border-bottom: 1px solid $color-red;
+  flex-basis: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    color: $color-red;
+    text-transform: uppercase;
+    font-family: "Berlingske Sans Bold";
+    font-size: 20px;
+  }
+}
+.subscription_card {
+  display: flex;
+  flex-direction: column;
+}
+
+.price_section {
+  h3 {
+    color: $color-grey-light;
+    font-size: 14px;
+    font-family: "Berlingske Sans Bold";
+  }
+  span {
+    font-weight: 600;
+    font-family: "Berlingske Sans Bold";
+  }
+  .price {
+    font-size: 48px;
+
+    line-height: 144%;
+  }
+  .currency {
+    font-size: 18px;
+  }
+}
+
+.price_underline {
+  width: 37px;
+  border: 2px solid $color-red;
+}
+
+.button_section {
+  //overwrite the default button length
+  * {
+    width: 100% !important;
+  }
+}
+
+.list_section {
+  padding: 40px 0 20px;
+  h4 {
+    line-height: 144%;
+    margin-bottom: 20px;
+    font-family: "Berlingske Sans Bold";
+  }
+  ul {
+    list-style-position: inside;
+  }
+  li {
+    font-size: 16px;
+    line-height: 144%;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: $screen-tablet-landscape) {
+  .subscription_container {
+    flex-direction: column;
+    padding: 20px;
+
+    .description_container {
+      padding-bottom: 40px;
+
+      h1,
+      p {
+        max-width: unset;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-tablet-landscape) {
+  .subscription_container {
+    h1 {
+      font-size: 42px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+}
+@media (max-width: $screen-tablet-portrait) {
+  .subscription_container {
+    h1 {
+      font-size: 36px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+  .subscription_card {
+    width: unset;
+  }
+}
+
+@media (max-width: $screen-smartphone-wide) {
+  .subscription_container {
+    h1 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+}

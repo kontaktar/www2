@@ -4,6 +4,9 @@ docker-compose ps
 docker-compose logs web
 docker-compose up --force-recreate
 
+yarn prisma migrate dev --name dev
+yarn prisma migrate deploy
+
 <p align="center">
   <a href="https://nextjs-postgres-auth.vercel.app/">
     <img src="/public/logo.png" height="96">
