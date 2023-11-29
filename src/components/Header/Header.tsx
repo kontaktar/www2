@@ -4,7 +4,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import cx from "classnames";
 import { Routes } from "types";
-import useAuth from "hooks/useAuth";
+import { useAuth } from "@/components/Auth/provider";
 import useMaxWidth from "hooks/useMaxWidth";
 import Button from "src/components/Button";
 import Logo from "src/components/Logo";

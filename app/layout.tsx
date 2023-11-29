@@ -6,9 +6,9 @@ import { Toaster } from "react-hot-toast";
 import AuthStatus from "@/components/auth-status";
 import { Suspense } from "react";
 import Providers from "../components/providers";
+import AuthProvider from "@/components/Auth/provider";
+
 import cx from "classnames";
-import StyledComponentsRegistry from "./lib/style-registry";
-import MainLayout from "layouts/MainLayout/MainLayout";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -106,7 +106,9 @@ export default async function RootLayout({
         <Suspense fallback="Loading...">
           {/* @ts-expect-error Async Server Component */}
         </Suspense>
-        <Providers>{children}</Providers>
+        <Providers>
+          <AuthProvider>{children}</AuthProvider>
+        </Providers>
       </body>
     </html>
   );

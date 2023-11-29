@@ -8,9 +8,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import cx from "classnames";
 // import { useAppDispatch } from "store";
 // import { deleteUserExperience } from "store/experiences";
-import { useAuth } from "@/components/Auth/provider";
 // import { editUserExperience } from "store/experiences";
-import { Icon } from "components";
+import Icon from "@/components/Layout/Icon";
 import Link from "components/LinkWrap";
 import styles from "./Card.module.scss";
 
@@ -33,7 +32,6 @@ const Card = (props) => {
 
   // TODO: This, onEditCard, onPublishToggleCard, onDeleteCard doesn't belong in the component.
   // Should be in a provider, this is breaking Storybook.
-  const { user, firebaseIdToken } = useAuth();
 
   const onEditCard = () => {
     onEdit(experienceId, title, description, years, months, published);
@@ -88,7 +86,7 @@ const Card = (props) => {
               onClick={onEditCard}
               data-test={`experienceEditButton-Card${id}`}
             >
-              <Icon className={styles.button_icon} name="edit" />
+              {/* <Icon className={styles.button_icon} name="edit" /> */}
             </button>
             <button
               type="button"
@@ -145,6 +143,7 @@ const Card = (props) => {
                   <span data-test={`experienceYears-Card${id}`}>
                     {years && years !== "0" ? `${years} ár` : ""}
                   </span>
+                  {years && months ? " og " : ""}
                   <span data-test={`experienceMonths-Card${id}`}>
                     {months && months !== "0" ? `${months} mán` : ""}
                   </span>
@@ -158,14 +157,14 @@ const Card = (props) => {
   );
 };
 
-Card.Loader = () => {
-  return (
-    <MuiCard className={cx(styles.card, styles.loader)}>
-      <CircularProgress />
-    </MuiCard>
-  );
-};
+// Card.Loader = () => {
+//   return (
+//     <MuiCard className={cx(styles.card, styles.loader)}>
+//       <CircularProgress />
+//     </MuiCard>
+//   );
+// };
 
-Card.displayName = "Card";
+// Card.displayName = "Card";
 
 export default Card;

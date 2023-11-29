@@ -1,13 +1,34 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { createContext, useContext } from "react";
+import { useSession, signOut } from "next-auth/react";
+import { Session } from "next-auth.d";
+type Context = {
+  user: Session["user"];
+  isLoggedIn: boolean;
+  isLoading: boolean;
+  logOut: () => void;
+  // logIn: () => void;
+};
+const AuthContext = createContext<Context>({} as Context);
 export default function AuthProvider({ children }) {
-  const { status } = useSession();
+  const { data, status } = useSession();
 
-  if (status === "loading") {
-    return <div>Loading...</div>;
+  const contextValue = {
+    user: data?.user as Session["user"],
+    isLoggedIn: status === "authenticated",
+    isLoading: status === "loading",
+    logOut: () => signOut(),
+    // logIn: () => router.push("/login"),
+  };
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuth must be used within a AuthProvider");
   }
-  if (status === "authenticated") {
-    return <>{children}</>;
-  }
-  return <div>Not authenticated</div>;
+  return context;
 }

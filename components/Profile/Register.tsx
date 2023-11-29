@@ -10,7 +10,7 @@ import {
   TextInput,
 } from "grommet";
 import { StatusGood } from "grommet-icons";
-import useAuth from "hooks/useAuth";
+import { useAuth } from "@/components/Auth/provider";
 import useUser from "hooks/useUser";
 import { useState } from "react";
 import toast from "react-hot-toast";

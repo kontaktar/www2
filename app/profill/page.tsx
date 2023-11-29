@@ -1,25 +1,12 @@
-import {
-  Main,
-  Heading,
-  Paragraph,
-  Footer,
-  Header,
-  Button,
-  Grid,
-  Box,
-} from "grommet";
+import { Main, Paragraph, Footer, Button, Grid, Box } from "grommet";
 import ProfileLayout from "@/components/Profile/Layout";
 import { ProfileProvider } from "@/components/Profile/ContextProvider";
+import Header from "@/components/Layout/Header";
 
 export default function Profile() {
   return (
     <>
-      <Header background="light-3" pad="medium">
-        <Box background="brand">
-          <Heading>K</Heading>
-        </Box>
-        <Button primary label="Innskrá"></Button>
-      </Header>
+      <Header />
       <Main pad="medium" fill="horizontal" direction="column" flex="grow">
         <ProfileProvider>
           <ProfileLayout />

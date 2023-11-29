@@ -1,32 +1,41 @@
 "use client";
-import { Page, PageContent } from "grommet";
-import useAuth from "hooks/useAuth";
+import {
+  Accordion,
+  AccordionPanel,
+  Box,
+  Button,
+  Form,
+  FormField,
+  Heading,
+  Page,
+  PageContent,
+  Paragraph,
+  TextInput,
+} from "grommet";
 import Register from "./Register";
-import useSWR from "swr";
 import { useProfile } from "./ContextProvider";
+import Experiences from "./Experiences";
 export default function ProfileLayout() {
-  const { userDetail, isLoadingUserDetail, isReady } = useProfile();
-  console.log(
-    "%c userDetail",
-    "color:white; padding: 30px; background-color: red",
-    userDetail
-  );
-
+  const { userDetail, isLoadingUserDetail, isReady, experience } = useProfile();
   if (!isReady || isLoadingUserDetail) {
     return <div>Loading...</div>;
   }
 
   return (
-    <Page>
-      <PageContent>
-        {userDetail?.id ? (
-          <h1>Welcome {userDetail?.firstName}</h1>
-        ) : (
-          <>
+    <Box>
+      {!userDetail?.id ? (
+        <Page>
+          <PageContent>
             <Register />
-          </>
-        )}
-      </PageContent>
-    </Page>
+          </PageContent>
+        </Page>
+      ) : (
+        <>
+          <Heading level={1}>Hæ {userDetail?.firstName}</Heading>
+
+          <Experiences />
+        </>
+      )}
+    </Box>
   );
 }

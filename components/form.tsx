@@ -28,7 +28,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
               toast.error(error);
             } else {
               router.refresh();
-              router.push("/protected");
+              router.push("/profill");
             }
           });
         } else {
@@ -114,7 +114,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
       ) : (
         <p className="text-center text-sm text-gray-600">
           Already have an account?{" "}
-          <Link href="/login" className="font-semibold text-gray-800">
+          <Link href="/innskra" className="font-semibold text-gray-800">
             Sign in
           </Link>{" "}
           instead.

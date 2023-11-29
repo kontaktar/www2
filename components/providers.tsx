@@ -3,6 +3,7 @@ import { SessionProvider } from "next-auth/react";
 import { Box, Grommet, Page, defaultProps } from "grommet";
 import StyledComponentsRegistry from "@/lib/styleregistry";
 import { SWRConfig } from "swr";
+
 export default function Providers({ children }) {
   const theme = {
     global: {

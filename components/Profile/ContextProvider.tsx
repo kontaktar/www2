@@ -1,15 +1,6 @@
 "use client";
-import useAuth from "hooks/useAuth";
-import register from "pages/api/register";
-import user from "pages/api/user";
-import React, {
-  createContext,
-  use,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import { useAuth } from "@/components/Auth/provider";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import useSWR from "swr";
 
@@ -21,9 +12,15 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
   const { user } = useAuth();
   const {
     data: userDetail,
-    mutate,
+    mutate: mutateDetails,
     isLoading: isLoadingUserDetail,
   } = useSWR(user?.id ? `/api/user/${user?.id}/detail` : null);
+
+  const {
+    data: experience,
+    isLoading: isLoadingExperience,
+    mutate: setExperience,
+  } = useSWR(user?.id ? `/api/user/${user?.id}/experience` : null);
 
   const register = async (values) => {
     const response = await fetch(`/api/user/${user?.id}/register`, {
@@ -39,7 +36,7 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
       console.error("error", data.error);
     } else {
       setIsRegistered(true);
-      mutate();
+      mutateDetails();
     }
   };
 
@@ -51,7 +48,9 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
     isReady,
     register,
     userDetail,
+    experience,
     isLoadingUserDetail,
+    setExperience,
   };
   return (
     <ProfileContext.Provider value={contextValue}>
@@ -64,7 +63,7 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
 export function useProfile() {
   const context = useContext(ProfileContext);
   if (context === undefined) {
-    throw new Error("useMyContext must be used within a ProfileProvider");
+    throw new Error("useProfile must be used within a ProfileProvider");
   }
   return context;
 }
