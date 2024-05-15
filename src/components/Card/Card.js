@@ -12,6 +12,7 @@ import { useAuth } from "@/components/Auth/provider";
 // import { editUserExperience } from "store/experiences";
 import { Icon } from "components";
 import Link from "components/LinkWrap";
+import { Box, Layer } from "grommet";
 import styles from "./Card.module.scss";
 
 const Card = (props) => {
@@ -106,7 +107,7 @@ const Card = (props) => {
             <button
               type="button"
               className={cx(styles.button, styles.right)}
-              onClick={onDeleteCard}
+              onClick={onDelete}
               data-test={`experienceDeleteButton-Card${id}`}
             >
               <Icon className={styles.button_icon} name="delete" />

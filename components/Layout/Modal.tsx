@@ -4,8 +4,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { DialogContent, DialogOverlay } from "@reach/dialog";
 import { animated, useTransition } from "react-spring";
 import cx from "classnames";
-// import { Button } from "components";´
-import { Button } from "grommet";
+import { Box, Button } from "grommet";
 import "@reach/dialog/styles.css";
 import styles from "./Modal.module.scss";
 
@@ -107,6 +106,7 @@ const ModalConfirm = ({
   open,
   onCancel,
   onConfirm,
+  title,
   ...props
 }: ConfirmProps) => {
   return (
@@ -115,20 +115,22 @@ const ModalConfirm = ({
       ariaLabel="confirmation"
       data-test="confirmModal"
       onClose={onCancel}
-      overlayClassName={cx(className, styles.confirm)}
+      // overlayClassName={cx(className, styles.confirm)}
       {...props}
     >
-      <>
-        <span>Ertu viss um að þú viljir eyða notanda?</span>
+      <Box fill pad="medium">
+        <span>{title}</span>
         <div className={styles.button_group_reversed}>
-          <Button secondary onClick={onCancel}>
-            NEI
-          </Button>
-          <Button primary onClick={onConfirm} success>
-            JÁ
-          </Button>
+          <Box pad="large" align="center">
+            <Button secondary onClick={onCancel} margin="large">
+              NEI
+            </Button>
+            <Button primary onClick={onConfirm} margin="large">
+              JÁ
+            </Button>
+          </Box>
         </div>
-      </>
+      </Box>
     </Modal>
   );
 };

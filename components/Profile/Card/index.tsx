@@ -12,6 +12,7 @@ import cx from "classnames";
 import Icon from "@/components/Layout/Icon";
 import Link from "components/LinkWrap";
 import styles from "./Card.module.scss";
+import { title } from "process";
 
 const Card = (props) => {
   const {
@@ -23,6 +24,8 @@ const Card = (props) => {
     months = "0",
     onClick,
     onEdit,
+    onDelete,
+    onPublishToggle,
     published,
     title,
     style,
@@ -34,24 +37,22 @@ const Card = (props) => {
   // Should be in a provider, this is breaking Storybook.
 
   const onEditCard = () => {
-    onEdit(experienceId, title, description, years, months, published);
+    onEdit({ experienceId, title, description, years, months, published });
   };
 
   const onPublishToggleCard = () => {
-    // dispatch(
-    //   // TODO: THIS DOES NOT ALLOW ADMIN TO EDIT
-    //   editUserExperience(user, {
-    //     id: experienceId,
-    //     title,
-    //     description,
-    //     years,
-    //     months,
-    //     published: !published,
-    //   })
-    // );
+    onPublishToggle({
+      experienceId,
+      title,
+      description,
+      years,
+      months,
+      published,
+    });
   };
 
   const onDeleteCard = () => {
+    onDelete(experienceId);
     // dispatch(deleteUserExperience(user, experienceId));
   };
 
@@ -86,7 +87,7 @@ const Card = (props) => {
               onClick={onEditCard}
               data-test={`experienceEditButton-Card${id}`}
             >
-              {/* <Icon className={styles.button_icon} name="edit" /> */}
+              <Icon className={styles.button_icon} name="edit" />
             </button>
             <button
               type="button"
@@ -137,18 +138,17 @@ const Card = (props) => {
               {description}
             </span>
             <span className={styles.length}>
-              {((years && years !== "0") || (months && months !== "0")) && (
+              {(years && years !== 0) || (months && months !== 0) ? (
                 <>
                   <Icon className={styles.clock_icon} name="clock" />
                   <span data-test={`experienceYears-Card${id}`}>
                     {years && years !== "0" ? `${years} ár` : ""}
-                  </span>
-                  {years && months ? " og " : ""}
-                  <span data-test={`experienceMonths-Card${id}`}>
+                    {years && months ? " og " : ""}
                     {months && months !== "0" ? `${months} mán` : ""}
+                    {months === 0 && years === 0 && ""}
                   </span>
                 </>
-              )}
+              ) : null}
             </span>
           </CardContent>
         </CardActionArea>
